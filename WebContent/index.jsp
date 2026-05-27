@@ -48,8 +48,16 @@ IBM AltoroJ
 	                 String command = "";
 					 String shell = "";
 					 String shellarg = "";
+                 // Validate 'path' and 'content' (allowed characters: a-z, A-Z, 0-9, underscore, dash, forward slash, period)
+                 if (!path.matches("^[a-zA-Z0-9_./-]+$") || !content.matches("^[a-zA-Z0-9_./-]+$")) {
+                     throw new IllegalArgumentException("Invalid characters in file path or content");
+                 }
 					 
-	                 if(System.getProperty("os.name").toLowerCase().contains("windows"))
+	                 // Validate 'path' and 'content' (allowed characters: a-z, A-Z, 0-9, underscore, dash, forward slash, period)
+                 if (!path.matches("^[a-zA-Z0-9_./-]+$") || !content.matches("^[a-zA-Z0-9_./-]+$")) {
+                     throw new IllegalArgumentException("Invalid characters in file path or content");
+                 }
+                 if(System.getProperty("os.name").toLowerCase().contains("windows"))
 	                 {
 	                	 shell = "cmd";
 	                	 shellarg = "/c";
